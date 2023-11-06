@@ -1,0 +1,235 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11920\viewh14980\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 -- Insertar registros en la tabla G\'e9nero\
+INSERT INTO G\'e9nero (id_g\'e9nero, nom_g\'e9nero, a\'f1o_origen)\
+VALUES\
+    (1, 'Rock', 1950),\
+    (2, 'Pop', 1960),\
+    (3, 'Cl\'e1sica', 1750),\
+    (4, 'Electr\'f3nica', 1980),\
+    (5, 'Country', 1920),\
+    (6, 'Jazz', 1910);\
+\
+-- Insertar registros en la tabla Ciudad\
+INSERT INTO Ciudad (id_ciudad, nom_ciudad)\
+VALUES\
+    (1, 'West Reading'),\
+    (2, 'Sheffield'),\
+    (3, 'Salzburg'),\
+    (4, 'Allentown'),\
+    (5, 'CDMX'),\
+    (6, 'Paris'),\
+    (7, 'Pittman Center'),\
+    (8, 'Las Vegas'),\
+    (9, 'Redditch'),\
+    (10, 'Boston');\
+\
+-- Insertar registros en la tabla Usuario\
+INSERT INTO Usuario (id_usuario, nom_usuario, fecha_inscripci\'f3n, id_ciudad)\
+VALUES\
+    (1, 'Frida M\'e1rquez', '2010-01-01', 5),\
+    (2, 'Jorge Esteban', '2010-01-01', 10),\
+    (3, 'Pablo Alazraki', '2012-01-03', 2),\
+    (4, 'Majo Vel\'e1zquez', '2014-04-01', 8),\
+    (5, 'Regina O\'92gorman', '2016-05-01', 9),\
+    (6, 'Fer Esponda', '2017-06-01', 1),\
+    (7, 'Marisela Bustos', '2018-07-01', 6),\
+    (8, 'Andrea Mar\'ednez', '2019-08-01', 7),\
+    (9, 'Felipe L\'f3pez', '2020-09-01', 3),\
+    (10, 'Santiago Flores', '2023-10-01', 4);\
+\
+-- Insertar registros en la tabla Tour\
+INSERT INTO Tour (id_tour, nom_tour, fecha_inicio, fecha_final)\
+VALUES\
+    (1, 'Eras Tour', '2023-01-01', '2023-01-10'),\
+    (2, 'The Car', '2023-02-01', '2023-02-10'),\
+    (3, 'Mozart: Essentials', '2023-03-01', '2023-03-10'),\
+    (4, 'Electric Shot', '2023-04-01', '2023-04-10'),\
+    (5, 'Koln Concert', '2023-05-01', '2023-05-10'),\
+    (6, 'Cowboys', '2023-06-01', '2023-06-10'),\
+    (7, 'Love on Tour', '2023-07-01', '2023-07-10');\
+\
+-- Insertar registros en la tabla Artista\
+INSERT INTO Artista (id_artista, nom_artista, id_g\'e9nero, id_ciudad, id_tour)\
+VALUES\
+    (1, 'Taylor Swift', 2, 1, 1),\
+    (2, 'Arctic Monkeys', 1, 2, 2),\
+    (3, 'Mozart', 3, 3, 3),\
+    (4, 'David Guetta', 4, 6, 4),\
+    (5, 'Keith Jarret', 6, 4, 5),\
+    (6, 'Dolly Parton', 5, 7, 6),\
+    (7, 'Harry Styles', 2, 7, 7);\
+\
+-- Insertar registros en la tabla Concierto\
+INSERT INTO Concierto (id_concierto, establecimiento, fecha, cupo_m\'e1ximo, id_ciudad, id_tour)\
+VALUES\
+    (1, 'West Reading Arena', '2023-01-05', 1000, 1, 1),\
+    (2, 'Allentown Stadium', '2023-01-10', 800, 4, 1),\
+    (3, 'Sheffield Hall', '2023-02-05', 1200, 2, 2),\
+    (4, 'Paris Arena', '2023-02-10', 900, 6, 2),\
+    (5, 'Salzburg Concert Hall', '2023-03-05', 1100, 3, 3),\
+    (6, 'Pittman Center Amphitheater', '2023-03-10', 700, 7, 3),\
+    (7, 'Las Vegas Stadium', '2023-04-05', 1000, 8, 4),\
+    (8, 'Las Vegas Forum', '2023-04-10', 800, 8, 4),\
+    (9, 'CDMX Arena', '2023-05-05', 1200, 5, 5),\
+    (10, 'Las Vegas Stadium', '2023-05-10', 900, 8, 5),\
+    (11, 'Paris Hall', '2023-06-05', 1100, 6, 6),\
+    (12, 'Paris Stadium', '2023-06-10', 700, 6, 6),\
+    (13, 'CDMX Arena', '2023-07-05', 1200, 5, 7),\
+    (14, 'Foro Sol', '2023-07-10', 900, 5, 7);\
+\
+-- Insertar registros en la tabla \'c1lbum\
+INSERT INTO \'c1lbum (id_\'e1lbum, nom_\'e1lbum, no_canciones, fecha_lanzamiento, id_artista)\
+VALUES\
+    (1, '1989', 13, '2014-10-27', 1),\
+    (2, 'Reputation', 16, '2017-11-10', 1),\
+    (3, 'The Car', 12, '2022-10-21', 2),\
+    (4, 'Tranquility Base Hotel & Casino', 11, '2018-05-11', 2),\
+    (5, 'Symphony No. 40', 4, '1788-07-25', 3),\
+    (6, 'Requiem', 14, '1791-12-05', 3),\
+    (7, 'Nothing But the Beat', 19, '2011-08-26', 4),\
+    (8, 'Listen', 18, '2014-11-21', 4),\
+    (9, 'The K\'f6ln Concert', 4, '1975-02-24', 5),\
+    (10, 'My Song', 9, '1978-03-02', 5),\
+    (11, 'Coat of Many Colors', 10, '1971-10-04', 6),\
+    (12, 'Jolene', 10, '1974-10-13', 6),\
+    (13, 'Fine Line', 12, '2019-12-13', 7),\
+    (14, 'Harry Styles', 10, '2017-05-12', 7);\
+\
+-- Insertar registros en la tabla Canci\'f3n con tiempos en formato hh:mm:ss\
+INSERT INTO Canci\'f3n (id_canci\'f3n, nom_canci\'f3n, duraci\'f3n_c, id_\'e1lbum)\
+VALUES\
+    (1, 'Shake It Off', '00:03:39', 1),\
+    (2, 'Blank Space', '00:03:51', 1),\
+    (3, 'Look What You Made Me Do', '00:03:31', 2),\
+    (4, 'Delicate', '00:03:52', 2),\
+    (5, 'Body Paint', '00:04:02', 3),\
+    (6, 'Sculpture of Anything Goes', '00:03:45', 3),\
+    (7, 'Tranquility Base', '00:04:24', 4),\
+    (8, 'Star Treatment', '00:05:54', 4),\
+    (9, 'Molto Allegro', '00:07:45', 5),\
+    (10, 'Andante', '00:07:35', 5),\
+    (11, 'Introitus', '00:06:13', 6),\
+    (12, 'Dies Irae', '00:02:01', 6),\
+    (13, 'Titanium', '00:04:05', 7),\
+    (14, 'Without You', '00:03:28', 7),\
+    (15, 'Dangerous', '00:03:23', 8),\
+    (16, 'Lovers on the Sun', '00:03:23', 8),\
+    (17, 'Part I', '00:26:01', 9),\
+    (18, 'Part II', '00:14:12', 9),\
+    (19, 'My Song', '00:08:06', 10),\
+    (20, 'The Journey Home', '00:06:25', 10),\
+    (21, 'Coat of Many Colors', '00:03:03', 11),\
+    (22, 'Traveling Man', '00:03:10', 11),\
+    (23, 'Jolene', '00:02:43', 12),\
+    (24, 'I Will Always Love You', '00:02:55', 12),\
+    (25, 'Watermelon Sugar', '00:02:54', 13),\
+    (26, 'Adore You', '00:03:27', 13),\
+    (27, 'Sign of the Times', '00:05:40', 14),\
+    (28, 'Kiwi', '00:02:56', 14);\
+\
+\
+-- Insertar registros en la tabla Escribi\'f3\
+INSERT INTO Escribi\'f3 (id_artista, id_canci\'f3n)\
+VALUES\
+    -- Taylor Swift escribi\'f3 "Shake It Off" y "Blank Space"\
+    (1, 1),\
+    (1, 2),\
+    -- Taylor Swift escribi\'f3 "Look What You Made Me Do" y "Delicate"\
+    (1, 3),\
+    (1, 4),\
+    -- Taylor Swift escribi\'f3 "Kiwi"\
+    (1, 28),\
+    -- Arctic Monkeys escribi\'f3 "Body Paint" y "Sculpture of Anything Goes"\
+    (2, 5),\
+    (2, 6),\
+    -- Arctic Monkeys escribi\'f3 "Tranquility Base" y "Star Treatment"\
+    (2, 7),\
+    (2, 8),\
+    -- Mozart escribi\'f3 "Molto Allegro" y "Andante"\
+    (3, 9),\
+    (3, 10),\
+    -- Mozart escribi\'f3 "Introitus" y "Dies Irae"\
+    (3, 11),\
+    (3, 12),\
+    -- David Guetta escribi\'f3 "Titanium" y "Without You"\
+    (4, 13),\
+    (4, 14),\
+    -- David Guetta escribi\'f3 "Dangerous" y "Lovers on the Sun"\
+    (4, 15),\
+    (4, 16),\
+    -- Keith Jarrett escribi\'f3 "Part I" y "Part II"\
+    (5, 17),\
+    (5, 18),\
+    -- Keith Jarrett escribi\'f3 "My Song" y "The Journey Home"\
+    (5, 19),\
+    (5, 20),\
+    -- Dolly Parton escribi\'f3 "Coat of Many Colors" y "Traveling Man"\
+    (6, 21),\
+    (6, 22),\
+    -- Dolly Parton escribi\'f3 "Jolene" e "I Will Always Love You"\
+    (6, 23),\
+    (6, 24),\
+    -- Dolly Parton escribi\'f3 "Body Paint"\
+    (6, 5),\
+    -- Harry Styles escribi\'f3 "Watermelon Sugar" y "Adore You"\
+    (7, 25),\
+    (7, 26),\
+    -- Harry Styles escribi\'f3 "Sign of the Times" y "Kiwi"\
+    (7, 27),\
+    (7, 28);\
+\
+-- Insertar registros en la tabla Reproducci\'f3n con tiempos en formato hh:mm:ss\
+INSERT INTO Reproducci\'f3n (id_reproducci\'f3n, duraci\'f3n_r, id_canci\'f3n, id_usuario)\
+VALUES\
+    -- Reproducciones de Frida M\'e1rquez\
+    (1, '00:04:02', 5, 1),    -- Frida M\'e1rquez reprodujo "Body Paint" de Arctic Monkeys\
+    (2, '00:03:45', 6, 1),    -- Frida M\'e1rquez reprodujo "Sculpture of Anything Goes" de Arctic Monkeys\
+    (3, '00:03:39', 1, 1),    -- Frida M\'e1rquez reprodujo "Shake It Off" de Taylor Swift\
+    (4, '00:03:51', 2, 1),    -- Frida M\'e1rquez reprodujo "Blank Space" de Taylor Swift\
+    (5, '00:05:40', 27, 1),   -- Frida M\'e1rquez reprodujo "Sign of the Times" de Harry Styles\
+    (6, '00:02:56', 28, 1),   -- Frida M\'e1rquez reprodujo "Kiwi" de Harry Styles\
+\
+    -- Reproducciones de Jorge Esteban\
+    (7, '00:04:02', 5, 2),    -- Jorge Esteban reprodujo "Body Paint" de Arctic Monkeys\
+    (8, '00:03:45', 6, 2),    -- Jorge Esteban reprodujo "Sculpture of Anything Goes" de Arctic Monkeys\
+    (9, '00:26:01', 17, 2),  -- Jorge Esteban reprodujo "Part I" de Keith Jarrett\
+    (10, '00:14:12', 18, 2), -- Jorge Esteban reprodujo "Part II" de Keith Jarrett\
+\
+    -- Reproducciones de Pablo Alazraki\
+    (11, '00:01:45', 9, 3),   -- Pablo Alazraki reprodujo "Molto Allegro" de Mozart\
+    (12, '00:07:35', 10, 3),  -- Pablo Alazraki reprodujo "Andante" de Mozart\
+\
+    -- Reproducciones de Majo Vel\'e1zquez\
+    (13, '00:04:24', 7, 4),   -- Majo Vel\'e1zquez reprodujo "Tranquility Base" de Arctic Monkeys\
+    (14, '00:05:54', 8, 4),   -- Majo Vel\'e1zquez reprodujo "Star Treatment" de Arctic Monkeys\
+\
+    -- Reproducciones de Regina O'gorman\
+    (15, '00:03:03', 21, 5),  -- Regina O'gorman reprodujo "Coat of Many Colors" de Dolly Parton\
+    (16, '00:03:10', 22, 5),  -- Regina O'gorman reprodujo "Traveling Man" de Dolly Parton\
+\
+    -- Reproducciones de Fer Esponda\
+    (17, '00:04:05', 13, 6),  -- Fer Esponda reprodujo "Titanium" de David Guetta\
+    (18, '00:03:28', 14, 6),  -- Fer Esponda reprodujo "Without You" de David Guetta\
+\
+    -- Reproducciones de Marisela Bustos\
+    (19, '00:01:23', 15, 7),  -- Marisela Bustos reprodujo "Dangerous" de David Guetta\
+    (20, '00:03:23', 16, 7),  -- Marisela Bustos reprodujo "Lovers on the Sun" de David Guetta\
+\
+    -- Reproducciones de Andrea Mar\'ednez\
+    (21, '00:06:13', 11, 8),  -- Andrea Mar\'ednez reprodujo "Introitus" de Mozart\
+    (22, '00:02:01', 12, 8),  -- Andrea Mar\'ednez reprodujo "Dies Irae" de Mozart\
+\
+    -- Reproducciones de Felipe L\'f3pez\
+    (23, '00:08:06', 19, 9),  -- Felipe L\'f3pez reprodujo "My Song" de Keith Jarrett\
+    (24, '00:06:25', 20, 9),  -- Felipe L\'f3pez reprodujo "The Journey Home" de Keith Jarrett\
+\
+    -- Reproducciones de Santiago Flores\
+    (25, '00:02:43', 23, 10), -- Santiago Flores reprodujo "Jolene" de Dolly Parton\
+    (26, '00:01:55', 24, 10); -- Santiago Flores reprodujo "I Will Always Love You" de Dolly Parton\
+}

@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\deftab720
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\
+-- Mostrar el nombre de los artistas que tienen canciones con duraci\'f3n mayor a 5 minutos. \
+\'97Mostrar el nombre de cada canci\'f3n y su duraci\'f3n. Ordenar alfab\'e9ticamente por el nombre del artista y ascendentemente por duraci\'f3n de la canci\'f3n.\
+\'97 select nom_artista, nom_canci\'f3n, duraci\'f3n_c from artista a, escribi\'f3 e, canci\'f3n c\
+where c.duraci\'f3n_c > '00:05:00'\
+and a.id_artista = e.id_artista\
+and e.id_canci\'f3n = c.id_canci\'f3n order by 1, 3\
+\
+-- Mostrar el nombre de los usuarios que se inscribieron a la platarorma entre los a\'f1os 2010 y 2017\
+select nom_usuario\
+from usuario u\
+where extract(year from u.fecha_inscripci\'f3n) between '2010' and '2017'\
+\
+-- Mostrar el nombre cada artista y su g\'e9nero para los artistas que no tocan \'91Country\'92. \
+select nom_artista, nom_g\'e9nero\
+from g\'e9nero g, artista a\
+where g.id_g\'e9nero = a.id_g\'e9nero and a.id_g\'e9nero not in\
+(select id_g\'e9nero\
+from g\'e9nero\
+where nom_g\'e9nero = 'Country')\
+\
+--Muestra el nombre de los artistas cuyas canciones hayan sido reproducidas por m\'e1s de un usuario diferente \
+\'97y que toquen un g\'e9nero con a\'f1o de origen posterior a 1900\
+select nom_artista\
+from artista a, escribi\'f3 e, canci\'f3n c, reproducci\'f3n r where a.id_artista = e.id_artista\
+and e.id_canci\'f3n = c.id_canci\'f3n\
+and c.id_canci\'f3n = r.id_canci\'f3n group by nom_artista\
+having count (distinct r.id_usuario) > 1 intersect\
+select nom_artista\
+from artista a, g\'e9nero g\
+where a\'f1o_origen >= 1900 and a.id_g\'e9nero = g.id_g\'e9nero\
+\
+-- Mostrar los nombres de los establecimientos que tengan una capacidad m\'e1xima de 800 personas o 1200. \
+\'97Mostar en que ciudad se encuentra el establecimiento y su cupo m\'e1ximo. Ordenar descendentemente por cupo\
+select establecimiento, nom_ciudad, cupo_m\'e1ximo from concierto c, ciudad ci\
+where cupo_m\'e1ximo = '800'\
+and c.id_ciudad = ci.id_ciudad union\
+select establecimiento, nom_ciudad, cupo_m\'e1ximo from concierto c, ciudad ci\
+where cupo_m\'e1ximo = '1200'\
+and c.id_ciudad = ci.id_ciudad order by 3 desc\
+\
+-- Mostrar el nombre de los todos los artistas y la cantidad de canci\'f3nes que han escrito\
+select nom_artista, count (c.id_canci\'f3n) from artista a, canci\'f3n c, escribi\'f3 e where e.id_artista = a.id_artista\
+and c.id_canci\'f3n = e.id_canci\'f3n group by 1\
+\
+-- Mostrar el nombre de la canci\'f3n y la cantidad de veces que se han reproducido para las canciones que tienen m\'e1s de una reproducci\'f3n.\
+select nom_canci\'f3n, count (id_reproducci\'f3n) from canci\'f3n c, reproducci\'f3n r\
+where c.id_canci\'f3n = r.id_canci\'f3n\
+group by nom_canci\'f3n\
+having count (id_reproducci\'f3n) > 1\
+\
+-- Mostrar el nombre de los usuarios que su nombre inicie a partir de la letra D y que han reproducido al menos una canci\'f3n con una duraci\'f3n de reproducci\'f3n menor a la duraci\'f3n de la canci\'f3n. \
+\'97La consulta debe mostrar el nombre del usuario y la cantidad de veces que han hecho una reproducci\'f3n con estas caracter\'edsticas\
+select nom_usuario, count (id_reproducci\'f3n) from usuario u, reproducci\'f3n r, canci\'f3n c where duraci\'f3n_r < duraci\'f3n_c\
+and nom_usuario >= 'D'\
+and u.id_usuario = r.id_usuario and r.id_canci\'f3n = c.id_canci\'f3n\
+group by nom_usuario\
+having count(id_reproducci\'f3n) >= 1\
+\
+-- Mostrar el \'e1lbum con la mayor cantidad de canciones, incluyendo la cantidad de canciones y el nombre del artista al que pertenece\
+select nom_\'e1lbum, nom_artista, no_canciones from \'c1lbum a, artista ar\
+where a.id_artista = ar.id_artista\
+and a.no_canciones = (select max(no_canciones) from \'c1lbum)\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

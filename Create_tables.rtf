@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28600\viewh14980\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 -- Crear la tabla G\'e9nero\
+CREATE TABLE G\'e9nero (\
+    id_g\'e9nero INT PRIMARY KEY,\
+    nom_g\'e9nero VARCHAR(255) NOT NULL,\
+    a\'f1o_origen INT\
+);\
+\
+-- Crear la tabla Ciudad\
+CREATE TABLE Ciudad (\
+    id_ciudad INT PRIMARY KEY,\
+    nom_ciudad VARCHAR(255) NOT NULL\
+);\
+\
+-- Crear la tabla Usuario\
+CREATE TABLE Usuario (\
+    id_usuario INT PRIMARY KEY,\
+    nom_usuario VARCHAR(255) NOT NULL,\
+    fecha_inscripci\'f3n DATE,\
+    id_ciudad INT,\
+    FOREIGN KEY (id_ciudad) REFERENCES Ciudad (id_ciudad)\
+);\
+\
+-- Crear la tabla Artista\
+CREATE TABLE Artista (\
+    id_artista INT PRIMARY KEY,\
+    nom_artista VARCHAR(255) NOT NULL,\
+    id_g\'e9nero INT,\
+    id_ciudad INT,\
+    id_tour INT,\
+    FOREIGN KEY (id_g\'e9nero) REFERENCES G\'e9nero (id_g\'e9nero),\
+    FOREIGN KEY (id_ciudad) REFERENCES Ciudad (id_ciudad),\
+    FOREIGN KEY (id_tour) REFERENCES Tour (id_tour)\
+);\
+\
+-- Crear la tabla Tour\
+CREATE TABLE Tour (\
+    id_tour INT PRIMARY KEY,\
+    nom_tour VARCHAR(255) NOT NULL,\
+    fecha_inicio DATE,\
+    fecha_final DATE\
+);\
+\
+-- Crear la tabla Concierto\
+CREATE TABLE Concierto (\
+    id_concierto INT PRIMARY KEY,\
+    establecimiento VARCHAR(255) NOT NULL,\
+    fecha DATE,\
+    cupo_m\'e1ximo INT,\
+    id_ciudad INT,\
+    id_tour INT,\
+    FOREIGN KEY (id_ciudad) REFERENCES Ciudad (id_ciudad),\
+    FOREIGN KEY (id_tour) REFERENCES Tour (id_tour)\
+);\
+\
+-- Crear la tabla \'c1lbum\
+CREATE TABLE \'c1lbum (\
+    id_\'e1lbum INT PRIMARY KEY,\
+    nom_\'e1lbum VARCHAR(255) NOT NULL,\
+    no_canciones INT,\
+    fecha_lanzamiento DATE,\
+    id_artista INT,\
+    FOREIGN KEY (id_artista) REFERENCES Artista (id_artista)\
+);\
+\
+-- Crear la tabla Canci\'f3n\
+CREATE TABLE Canci\'f3n (\
+    id_canci\'f3n INT PRIMARY KEY,\
+    nom_canci\'f3n VARCHAR(255) NOT NULL,\
+    duraci\'f3n_c TIME,\
+    id_\'e1lbum INT,\
+    FOREIGN KEY (id_\'e1lbum) REFERENCES \'c1lbum (id_\'e1lbum)\
+);\
+\
+-- Crear la tabla Escribi\'f3\
+CREATE TABLE Escribi\'f3 (\
+    id_artista INT,\
+    id_canci\'f3n INT,\
+    FOREIGN KEY (id_artista) REFERENCES Artista (id_artista),\
+    FOREIGN KEY (id_canci\'f3n) REFERENCES Canci\'f3n (id_canci\'f3n)\
+);\
+\
+-- Crear la tabla Reproducci\'f3n\
+CREATE TABLE Reproducci\'f3n (\
+    id_reproducci\'f3n INT PRIMARY KEY,\
+    duraci\'f3n_r TIME,\
+    id_canci\'f3n INT,\
+    id_usuario INT,\
+    FOREIGN KEY (id_canci\'f3n) REFERENCES Canci\'f3n (id_canci\'f3n),\
+    FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)\
+);\
+}
